@@ -5,8 +5,10 @@
  */
 package clienttcp;
 
+import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.net.Socket;
 import java.util.Scanner;
 import java.util.logging.Level;
@@ -21,11 +23,12 @@ public class ClientTCP {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         // TODO code application logic here
-        Scanner sc=new Scanner(System.in);
+//        Scanner sc=new Scanner(System.in);
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
         System.out.print(">\t");
-        String massage ="Ballesio:\t"+ sc.nextLine();
+        String massage ="Ballesio "+ br.readLine();
         try {
 //            Socket clienSocket=new Socket("10.102.0.65", 15120);
             Socket clienSocket=new Socket("LocalHost", 15120);
